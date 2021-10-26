@@ -8,10 +8,10 @@
 import UIKit
 
 public struct SupplementaryItem {
-    var isHidden: Bool = true
-    var height: CGFloat = 70.0
+    var isHidden: Bool
+    var height: CGFloat
     
-    public init(isHidden: Bool, height: CGFloat) {
+    public init(isHidden: Bool = true, height: CGFloat = 70.0) {
         self.isHidden = isHidden
         self.height = height
     }
