@@ -7,13 +7,18 @@
 
 import UIKit
 
-struct SupplementaryItem {
+public struct SupplementaryItem {
     var isHidden: Bool = true
     var height: CGFloat = 70.0
+    
+    public init(isHidden: Bool, height: CGFloat) {
+        self.isHidden = isHidden
+        self.height = height
+    }
 }
 
 @available(iOS 13.0, *)
-extension NSCollectionLayoutSection {
+public extension NSCollectionLayoutSection {
     
     static func listLayout(
         environment: NSCollectionLayoutEnvironment,

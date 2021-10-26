@@ -15,7 +15,7 @@ public class Section: Hashable {
     var isShowButton: Bool = true
     var isShowBadge: Bool = false
 
-    init(id: String) {
+    public init(id: String) {
         self.id = id
     }
 

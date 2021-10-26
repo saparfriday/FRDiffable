@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     init(repeatingExpression expression: @autoclosure (() -> Element), count: Int) {
         var temp = [Element]()
