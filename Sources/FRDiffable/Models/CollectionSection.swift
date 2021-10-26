@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-public class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
+open class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
 where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     
     // MARK: - new
