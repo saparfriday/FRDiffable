@@ -10,11 +10,11 @@ import Foundation
 public enum Item: Hashable {
     case loading(UUID)
     
-    static var loadingItems: [Item] {
+    public static var loadingItems: [Item] {
         Array(repeatingExpression: Item.loading(UUID()), count: 30)
     }
     
-    static var loadingItem: [Item] {
+    public static var loadingItem: [Item] {
         [Item.loading(UUID())]
     }
 }
