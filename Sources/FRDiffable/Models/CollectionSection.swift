@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
+public class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
 where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     
     // MARK: - new
@@ -26,12 +26,12 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         return String(describing: CollectionCell.self)
     }
 
-    override func registerCells(in collection: UICollectionView) {
+    public override func registerCells(in collection: UICollectionView) {
         collection.register(UINib(nibName: cellId, bundle: nil),
                             forCellWithReuseIdentifier: cellId)
     }
 
-    override func cell(for item: AnyHashable, at indexPath: IndexPath, in collection: UICollectionView) -> UICollectionViewCell? {
+    public override func cell(for item: AnyHashable, at indexPath: IndexPath, in collection: UICollectionView) -> UICollectionViewCell? {
         guard let cell = collection.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CollectionCell else {
             return nil
         }
@@ -47,7 +47,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         return cell
     }
 
-    override func didSelect(item: AnyHashable, at index: Int) {
+    public override func didSelect(item: AnyHashable, at index: Int) {
         guard let item = item as? T else {
             return
         }
@@ -55,7 +55,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         cellSelection?(item, index)
     }
 
-    override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
+    public override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
         return layout?(environment)
     }
 }

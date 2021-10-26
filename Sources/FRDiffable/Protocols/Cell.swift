@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Cell {
+public protocol Cell {
     associatedtype Object
 
     func configure(with model: Object)

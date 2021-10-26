@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-class Section: Hashable {
+public class Section: Hashable {
     let id: String
     var isEmpty: Bool = true
     
@@ -39,11 +39,11 @@ class Section: Hashable {
         return nil
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 
-    static func == (lhs: Section, rhs: Section) -> Bool {
+    public static func == (lhs: Section, rhs: Section) -> Bool {
         return lhs.id == rhs.id
     }
     

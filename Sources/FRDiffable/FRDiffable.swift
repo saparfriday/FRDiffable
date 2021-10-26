@@ -1,5 +1,5 @@
 //
-//  CollectionAdapter.swift
+//  FRDiffable.swift
 //  
 //
 //  Created by user on 26.10.2021.
@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-protocol FRDiffableDelegate: AnyObject {
+public protocol FRDiffableDelegate: AnyObject {
     func sections() -> [Section]
     func allPossibleSections() -> [Section]
     func itemsFor(section: Section) -> [AnyHashable]
@@ -83,7 +83,7 @@ public class FRDiffable: NSObject {
 @available(iOS 13.0, *)
 extension FRDiffable: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = datasource.itemIdentifier(for: indexPath) else {
             return
         }
