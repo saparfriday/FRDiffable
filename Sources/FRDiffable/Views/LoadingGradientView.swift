@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 13.0, *)
 final public class LoadingGradientView: CAGradientLayer {
     
-    init(bounds: CGRect) {
+    public init(bounds: CGRect) {
         super.init()
         colors = [UIColor.clear.cgColor, UIColor.systemGray.withAlphaComponent(0.1).cgColor, UIColor.clear.cgColor]
         startPoint = CGPoint(x: 0.0, y: 0.5)
