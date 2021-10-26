@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-open class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
+public class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
 where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     
     // MARK: - new
@@ -18,20 +18,20 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     public var loadMore: (() -> Void)?
     // end
     
-    open var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
-    public var cellConfiguration: ((CollectionCell) -> Void)?
-    public var cellSelection: ((T, Int) -> Void)?
+    var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
+    var cellConfiguration: ((CollectionCell) -> Void)?
+    var cellSelection: ((T, Int) -> Void)?
 
     private var cellId: String {
         return String(describing: CollectionCell.self)
     }
 
-    public override func registerCells(in collection: UICollectionView) {
+    override func registerCells(in collection: UICollectionView) {
         collection.register(UINib(nibName: cellId, bundle: nil),
                             forCellWithReuseIdentifier: cellId)
     }
 
-    public override func cell(for item: AnyHashable, at indexPath: IndexPath, in collection: UICollectionView) -> UICollectionViewCell? {
+    override func cell(for item: AnyHashable, at indexPath: IndexPath, in collection: UICollectionView) -> UICollectionViewCell? {
         guard let cell = collection.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CollectionCell else {
             return nil
         }
@@ -47,7 +47,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         return cell
     }
 
-    public override func didSelect(item: AnyHashable, at index: Int) {
+    override func didSelect(item: AnyHashable, at index: Int) {
         guard let item = item as? T else {
             return
         }
@@ -55,7 +55,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         cellSelection?(item, index)
     }
 
-    public override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
+    override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
         return layout?(environment)
     }
 }
