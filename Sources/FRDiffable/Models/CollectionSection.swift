@@ -18,9 +18,9 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     public var loadMore: (() -> Void)?
     // end
     
-    open var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
-    var cellConfiguration: ((CollectionCell) -> Void)?
-    var cellSelection: ((T, Int) -> Void)?
+    public var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
+    public var cellConfiguration: ((CollectionCell) -> Void)?
+    public var cellSelection: ((T, Int) -> Void)?
 
     private var cellId: String {
         return String(describing: CollectionCell.self)
