@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Item: Hashable {
+public enum Item: Hashable {
     case loading(UUID)
     
     static var loadingItems: [Item] {
