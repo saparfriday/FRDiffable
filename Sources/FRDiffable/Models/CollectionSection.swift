@@ -12,15 +12,15 @@ open class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
 where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     
     // MARK: - new
-    var canLoadMore: Bool = false
-    var modelsCount: Int = 0
-    var headerButtonTapped: (() -> Void)?
-    var loadMore: (() -> Void)?
+    public var canLoadMore: Bool = false
+    public var modelsCount: Int = 0
+    public var headerButtonTapped: (() -> Void)?
+    public var loadMore: (() -> Void)?
     // end
     
-    var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
-    var cellConfiguration: ((CollectionCell) -> Void)?
-    var cellSelection: ((T, Int) -> Void)?
+    public var layout: ((NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection)?
+    public var cellConfiguration: ((CollectionCell) -> Void)?
+    public var cellSelection: ((T, Int) -> Void)?
 
     private var cellId: String {
         return String(describing: CollectionCell.self)
