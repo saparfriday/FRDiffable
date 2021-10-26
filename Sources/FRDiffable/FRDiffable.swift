@@ -8,14 +8,14 @@
 import UIKit
 
 @available(iOS 13.0, *)
-protocol CollectionAdapterDelegate: AnyObject {
+protocol FRDiffableDelegate: AnyObject {
     func sections() -> [Section]
     func allPossibleSections() -> [Section]
     func itemsFor(section: Section) -> [AnyHashable]
 }
 
 @available(iOS 13.0, *)
-class CollectionAdapter: NSObject {
+public class FRDiffable: NSObject {
     
     // MARK: - Views
     
@@ -25,11 +25,11 @@ class CollectionAdapter: NSObject {
     
     private lazy var datasource: UICollectionViewDiffableDataSource<Section, AnyHashable> = UICollectionViewDiffableDataSource(collectionView: self.collection!, cellProvider: cell)
     
-    private weak var delegate: CollectionAdapterDelegate?
+    private weak var delegate: FRDiffableDelegate?
     
     // MARK: - Init
 
-    init(collection: UICollectionView, delegate: CollectionAdapterDelegate) {
+    public init(collection: UICollectionView, delegate: FRDiffableDelegate) {
         self.collection = collection
         self.delegate = delegate
         super.init()
@@ -62,7 +62,7 @@ class CollectionAdapter: NSObject {
         return section.layout(environment: environment)
     }
 
-    func performUpdates(animated: Bool, completion: (() -> Void)? = nil) {
+    public func performUpdates(animated: Bool, completion: (() -> Void)? = nil) {
         guard let delegate = delegate else { return }
 
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
@@ -81,7 +81,7 @@ class CollectionAdapter: NSObject {
 // MARK: - Collection Delegate
 
 @available(iOS 13.0, *)
-extension CollectionAdapter: UICollectionViewDelegate {
+extension FRDiffable: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = datasource.itemIdentifier(for: indexPath) else {
