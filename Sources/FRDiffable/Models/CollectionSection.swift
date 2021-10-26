@@ -55,7 +55,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         cellSelection?(item, index)
     }
 
-    public override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
+    open override func layout(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
         return layout?(environment)
     }
 }
