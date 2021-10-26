@@ -26,7 +26,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
         return String(describing: CollectionCell.self)
     }
 
-    public override func registerCells(in collection: UICollectionView) {
+    open override func registerCells(in collection: UICollectionView) {
         collection.register(UINib(nibName: cellId, bundle: nil),
                             forCellWithReuseIdentifier: cellId)
     }
