@@ -9,7 +9,7 @@ import UIKit
 
 @available(iOS 13.0, *)
 open class Section: Hashable {
-    let id: String
+    public let id: String
     var isEmpty: Bool = true
     
     var isShowButton: Bool = true
