@@ -148,4 +148,55 @@ public extension NSCollectionLayoutSection {
         return section
     }
     
+    static func continuousLayout(
+        environment: NSCollectionLayoutEnvironment,
+        height: NSCollectionLayoutDimension,
+        width: NSCollectionLayoutDimension?,
+        spacing: CGFloat = 0,
+        scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .continuous,
+        contentInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
+        sectionHeader: SupplementaryItem = .init(isHidden: true, height: 70.0)
+    ) -> NSCollectionLayoutSection {
+        
+        let item = NSCollectionLayoutItem(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: height
+            )
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: .init(
+                widthDimension: width ?? height,
+                heightDimension: height
+            ),
+            subitem: item,
+            count: 1
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.orthogonalScrollingBehavior = scrollBehavior
+        section.contentInsets = contentInsets
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(sectionHeader.height)
+            ),
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        var supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
+        
+        if !sectionHeader.isHidden {
+            supplementaryItems.append(header)
+        }
+        
+        section.boundarySupplementaryItems = supplementaryItems
+        
+        return section
+    }
+    
 }

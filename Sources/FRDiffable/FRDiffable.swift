@@ -14,6 +14,14 @@ public protocol FRDiffableDelegate: AnyObject {
     func itemsFor(section: Section) -> [AnyHashable]
 }
 
+/**
+ FRDiffable: Main collectionView adapter class.
+ 
+ Using for connect collectionView and diffableDataSource.
+ You  shoud provide delegate `FRDiffableDelegate` to send data.
+ For change colors or content check images and colorises properties.
+ For change show edit button set `isEditable` to true.
+ */
 @available(iOS 13.0, *)
 public class FRDiffable: NSObject {
     
