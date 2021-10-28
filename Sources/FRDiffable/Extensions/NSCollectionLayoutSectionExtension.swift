@@ -155,7 +155,7 @@ public extension NSCollectionLayoutSection {
         spacing: CGFloat = 0,
         scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .continuous,
         contentInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
-        sectionHeader: SupplementaryItem = .init(isHidden: true, height: 70.0)
+        sectionHeader: SupplementaryItem = .init(isHidden: false, height: 70.0)
     ) -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(
