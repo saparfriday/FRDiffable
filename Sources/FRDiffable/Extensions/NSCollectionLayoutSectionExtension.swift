@@ -151,7 +151,7 @@ public extension NSCollectionLayoutSection {
     static func continuousLayout(
         environment: NSCollectionLayoutEnvironment,
         height: NSCollectionLayoutDimension,
-        width: NSCollectionLayoutDimension?,
+        width: NSCollectionLayoutDimension? = nil,
         spacing: CGFloat = 0,
         scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .continuous,
         contentInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
