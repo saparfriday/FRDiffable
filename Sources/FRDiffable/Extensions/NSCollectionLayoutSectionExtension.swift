@@ -7,17 +7,6 @@
 
 import UIKit
 
-public struct SupplementaryItem {
-    var isHidden: Bool
-    var height: CGFloat
-    
-    public init(isHidden: Bool = true, height: CGFloat = 70.0) {
-        self.isHidden = isHidden
-        self.height = height
-    }
-}
-
-@available(iOS 13.0, *)
 public extension NSCollectionLayoutSection {
     
     static func listLayout(
@@ -26,7 +15,8 @@ public extension NSCollectionLayoutSection {
         spacing: CGFloat = 0,
         contentInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
         sectionHeader: SupplementaryItem = .init(isHidden: true, height: 70.0),
-        sectionFooter: SupplementaryItem = .init(isHidden: false, height: 70.0)
+        sectionFooter: SupplementaryItem = .init(isHidden: false, height: 70.0),
+        sectionEmpty: SupplementaryItem = .init(isHidden: false, height: 150.0)
     ) -> NSCollectionLayoutSection {
 
         let item = NSCollectionLayoutItem(
@@ -66,6 +56,15 @@ public extension NSCollectionLayoutSection {
             alignment: .bottom
         )
         
+        let empty = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(sectionEmpty.height)
+            ),
+            elementKind: sectionEmpty.elementKind,
+            alignment: .bottom
+        )
+        
         var supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
         
         if !sectionHeader.isHidden {
@@ -74,6 +73,10 @@ public extension NSCollectionLayoutSection {
         
         if !sectionFooter.isHidden {
             supplementaryItems.append(footer)
+        }
+        
+        if !sectionEmpty.isHidden {
+            supplementaryItems.append(empty)
         }
         
         section.boundarySupplementaryItems = supplementaryItems
@@ -89,7 +92,8 @@ public extension NSCollectionLayoutSection {
         spacing: CGFloat = 0,
         contentInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
         sectionHeader: SupplementaryItem = .init(isHidden: true, height: 70.0),
-        sectionFooter: SupplementaryItem = .init(isHidden: false, height: 70.0)
+        sectionFooter: SupplementaryItem = .init(isHidden: false, height: 70.0),
+        sectionEmpty: SupplementaryItem = .init(isHidden: false, height: 150.0)
     ) -> NSCollectionLayoutSection {
         
         let count: Int = environment.traitCollection.horizontalSizeClass == .compact ? compactItems : regularItems
@@ -133,6 +137,15 @@ public extension NSCollectionLayoutSection {
             alignment: .bottom
         )
         
+        let empty = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(sectionEmpty.height)
+            ),
+            elementKind: sectionEmpty.elementKind,
+            alignment: .bottom
+        )
+        
         var supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = []
         
         if !sectionHeader.isHidden {
@@ -141,6 +154,10 @@ public extension NSCollectionLayoutSection {
         
         if !sectionFooter.isHidden {
             supplementaryItems.append(footer)
+        }
+        
+        if !sectionEmpty.isHidden {
+            supplementaryItems.append(empty)
         }
         
         section.boundarySupplementaryItems = supplementaryItems

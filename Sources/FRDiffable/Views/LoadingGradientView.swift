@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 final public class LoadingGradientView: CAGradientLayer {
     
     public init(bounds: CGRect) {

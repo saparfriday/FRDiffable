@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 open class Section: Hashable {
     public let id: String
     open var isEmpty: Bool = true

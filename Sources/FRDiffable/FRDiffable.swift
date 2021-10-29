@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 public protocol FRDiffableDelegate: AnyObject {
     func sections() -> [Section]
     func allPossibleSections() -> [Section]
@@ -22,7 +21,6 @@ public protocol FRDiffableDelegate: AnyObject {
  For change colors or content check images and colorises properties.
  For change show edit button set `isEditable` to true.
  */
-@available(iOS 13.0, *)
 public class FRDiffable: NSObject {
     
     // MARK: - Views
@@ -88,7 +86,6 @@ public class FRDiffable: NSObject {
 
 // MARK: - Collection Delegate
 
-@available(iOS 13.0, *)
 extension FRDiffable: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

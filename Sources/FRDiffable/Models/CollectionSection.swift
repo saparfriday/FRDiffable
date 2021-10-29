@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 open class CollectionSection<T: Hashable, CollectionCell: Cell>: Section
 where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     
