@@ -12,7 +12,7 @@ public struct SupplementaryItem {
     var height: CGFloat
     var elementKind: String
     
-    public init(isHidden: Bool = true, height: CGFloat = 70.0, elementKind: String = "") {
+    public init(isHidden: Bool = true, height: CGFloat = 70.0, elementKind: String = "emptyView") {
         self.isHidden = isHidden
         self.height = height
         self.elementKind = elementKind
