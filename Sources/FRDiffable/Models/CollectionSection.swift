@@ -14,7 +14,7 @@ where CollectionCell: UICollectionViewCell, CollectionCell.Object == T {
     // MARK: - new
     public var canLoadMore: Bool = false
     public var modelsCount: Int = 0
-    public var headerButtonTapped: (() -> Void)?
+    public var headerButtonDidTapped: (() -> Void)?
     public var loadMore: (() -> Void)?
     // end
     
