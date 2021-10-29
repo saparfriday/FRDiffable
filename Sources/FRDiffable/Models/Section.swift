@@ -43,6 +43,10 @@ open class Section: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+        hasher.combine(titleText)
+        hasher.combine(subtitleText)
+        hasher.combine(isShowButton)
+        hasher.combine(isShowBadge)
     }
 
     public static func == (lhs: Section, rhs: Section) -> Bool {
