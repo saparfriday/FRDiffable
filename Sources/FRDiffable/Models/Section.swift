@@ -10,12 +10,12 @@ import UIKit
 @available(iOS 13.0, *)
 open class Section: Hashable {
     public let id: String
-    var isEmpty: Bool = true
+    public var isEmpty: Bool = true
     
-    var titleText: String = ""
-    var subtitleText: String = ""
-    var isShowButton: Bool = true
-    var isShowBadge: Bool = false
+    public var titleText: String = ""
+    public var subtitleText: String = ""
+    public var isShowButton: Bool = true
+    public var isShowBadge: Bool = false
 
     public init(id: String) {
         self.id = id
