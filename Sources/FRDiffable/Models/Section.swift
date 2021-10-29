@@ -12,6 +12,8 @@ open class Section: Hashable {
     public let id: String
     var isEmpty: Bool = true
     
+    var titleText: String = ""
+    var subtitleText: String = ""
     var isShowButton: Bool = true
     var isShowBadge: Bool = false
 
