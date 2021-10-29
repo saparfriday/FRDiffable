@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 13.0, *)
 open class Section: Hashable {
     public let id: String
-    public var isEmpty: Bool = true
+    open var isEmpty: Bool = true
     
     public var titleText: String = ""
     public var subtitleText: String = ""
@@ -43,18 +43,10 @@ open class Section: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-        hasher.combine(titleText)
-        hasher.combine(subtitleText)
-        hasher.combine(isShowButton)
-        hasher.combine(isShowBadge)
     }
 
     public static func == (lhs: Section, rhs: Section) -> Bool {
-        return lhs.id == rhs.id &&
-        lhs.titleText == rhs.titleText &&
-        lhs.subtitleText == rhs.subtitleText &&
-        lhs.isShowButton == rhs.isShowButton &&
-        lhs.isShowBadge == rhs.isShowBadge
+        return lhs.id == rhs.id
     }
     
 }
