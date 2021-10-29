@@ -46,7 +46,11 @@ open class Section: Hashable {
     }
 
     public static func == (lhs: Section, rhs: Section) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id &&
+        lhs.titleText == rhs.titleText &&
+        lhs.subtitleText == rhs.subtitleText &&
+        lhs.isShowButton == rhs.isShowButton &&
+        lhs.isShowBadge == rhs.isShowBadge
     }
     
 }
