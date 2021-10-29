@@ -10,11 +10,9 @@ import UIKit
 public struct SupplementaryItem {
     var isHidden: Bool
     var height: CGFloat
-    var elementKind: String
     
-    public init(isHidden: Bool = true, height: CGFloat = 70.0, elementKind: String = "emptyCollectionReusableView") {
+    public init(isHidden: Bool = true, height: CGFloat = 70.0) {
         self.isHidden = isHidden
         self.height = height
-        self.elementKind = elementKind
     }
 }
